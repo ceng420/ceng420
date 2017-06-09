@@ -8,7 +8,7 @@ import random
 from math import floor
 
 '''
-For the knapsack problem we will use list (arrays) to store the items labels
+For the knapsack problem we will use lists (arrays) to store the items labels
 '''
 
 items = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
@@ -32,11 +32,11 @@ mutation_rate = 0.8
 ''' The probability that offspring will limit the mutation operation'''
 mutation_resilience = 0.9
 
-''' We use the number of generation as termination condition '''
+''' We use the number of generations as termination condition '''
 termination = 10
 
 
-''' A list that store all the individual in the population '''
+''' A list to store all the individuals in the population '''
 population = list()
 
 
@@ -172,12 +172,13 @@ def mutation(individual):
     ''' generate a  uniform random value as the mutation chance '''
     mutation_chance = random.uniform(0, 1)
 
-    ''' not all the offspring will be mutated '''
+    ''' not all the offsprings will be mutated '''
     if mutation_chance < mutation_rate:
 
         chromosome = individual['chromosome']
 
-        ''' if the offspring will be mutated it can only mutated twice with a resilience
+        '''
+            if the offspring will be mutated it can only be mutated twice with a resilience
             of 90% for the second mutation
         '''
         bit_flip_rate = random.uniform(0, 1)
@@ -204,7 +205,6 @@ def mutation(individual):
 ''' This the evolution process of the genetic algorithm '''
 generation_counter = 0
 
-
 initialize_population()
 
 calculate_fitness()
@@ -213,7 +213,7 @@ while generation_counter < termination:
 
     generation_counter += 1
 
-    ''' uss the crossover rate to decide how many new offsprings will be generated  '''
+    ''' use the crossover rate to decide how many new offsprings will be generated  '''
     new_offsprings = floor(len(population) * crossover_rate / 2)
 
     new_generation = list()
